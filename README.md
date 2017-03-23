@@ -117,6 +117,9 @@ Universal logging library [winston](https://www.npmjs.com/package/winston) is us
 ## License
 This project is licensed under the [MIT License](https://github.com/maratgaip/MusicApi/blob/master/LICENSE)
 
+## Documentation
+[MusicApi Documentation](https://github.com/maratgaip/MusicApi/blob/master/Doc.md)
+
 ## Meta
 
 Marat Gaipov – [@maratgaip] – marattig@gmail.com
