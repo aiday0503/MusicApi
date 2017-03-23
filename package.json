@@ -1,5 +1,5 @@
 {
-  "name": "express-mongoose-es6-rest-api",
+  "name": "notaApi",
   "version": "2.0.0",
   "description": "A Boilerplate application for building REST APIs using express, mongoose in ES6 with code coverage",
   "author": "Kunal Kapadia <kunalkapadia12@gmail.com>",
@@ -12,7 +12,7 @@
   },
   "scripts": {
     "start": "gulp serve",
-    "start:debug": "cross-env DEBUG=express-mongoose-es6-rest-api:* yarn start",
+    "start:debug": "cross-env DEBUG=notaApi:* yarn start",
     "build": "gulp",
     "lint": "esw *.js server config --color",
     "lint:watch": "yarn lint -- --watch",
