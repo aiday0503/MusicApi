@@ -1,4 +1,4 @@
-# Express & mongoose REST API for [![MusicApp]](https://github.com/maratgaip/MusicApp)
+# Express & mongoose REST API for [MusicApp](https://github.com/maratgaip/MusicApp)
 
 ## Overview
 
@@ -28,8 +28,8 @@ This is a application for building REST APIs in Node.js using ES6 and Express wi
 
 Clone the repo:
 ```sh
-git clone git@github.com:KunalKapadia/express-mongoose-es6-rest-api.git
-cd express-mongoose-es6-rest-api
+git clone git@github.com:maratgaip/MusicApi.git
+cd MusicApi
 ```
 
 Install yarn:
@@ -129,26 +129,10 @@ Get code coverage summary on executing `yarn test`
 `yarn test` also generates HTML code coverage report in `coverage/` directory. Open `lcov-report/index.html` to view it.
 ![Code coverage HTML report](https://cloud.githubusercontent.com/assets/4172932/12625331/571a48fe-c559-11e5-8aa0-f9aacfb8c1cb.jpg)
 
-## A Boilerplate-only Option
-
-If you would prefer not to use any of our tooling, delete the following files from the project: `package.json`, `gulpfile.babel.js`, `.eslintrc` and `.travis.yml`. You can now safely use the boilerplate with an alternative build-system or no build-system at all if you choose.
-
-## Docs and Recipes
-
-* [Gulp recipes](https://github.com/gulpjs/gulp/tree/master/docs/recipes) - the official Gulp recipes directory includes a comprehensive list of guides for different workflows you can add to your project.
-
-## Contributing
-
-Contributions, questions and comments are all welcome and encouraged. For code contributions submit a pull request with unit test.
-
 ## License
-This project is licensed under the [MIT License](https://github.com/KunalKapadia/express-mongoose-es6-rest-api/blob/master/LICENSE)
-
-## Support Development
-If this project saved your valuable time in getting your service up, and you feel like buying me coffee, you can donate either at my BTC address: `1LkW5UoERR1jjJsChMheKuo6vn95x2mzWg` or at [![Support via Paypal](https://img.shields.io/badge/support-paypal-yellowgreen.svg?style=flat-square)](https://www.paypal.me/KunalKapadia)
-
-Your support is greatly appreciated.
+This project is licensed under the [MIT License](https://github.com/maratgaip/MusicApi/blob/master/LICENSE)
 
 ## Meta
 
 Marat Gaipov – [@maratgaip] – marattig@gmail.com
+Maksat Abdisattarov – [@MaksatSG] – maksibusiness@gmail.com
