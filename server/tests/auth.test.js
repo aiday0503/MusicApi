@@ -9,13 +9,15 @@ chai.config.includeStack = true;
 
 describe('## Auth APIs', () => {
   const validUserCredentials = {
-    username: 'react',
-    password: 'express'
+    username: 'marattig',
+    password: 'password',
+    email: 'marattig@gmail.com'
   };
 
   const invalidUserCredentials = {
     username: 'react',
-    password: 'IDontKnow'
+    password: 'IDontKnow',
+    email: 'IDontKnow'
   };
 
   let jwtToken;
@@ -27,7 +29,7 @@ describe('## Auth APIs', () => {
         .send(invalidUserCredentials)
         .expect(httpStatus.UNAUTHORIZED)
         .then((res) => {
-          expect(res.body.message).to.equal('Authentication error');
+          expect(res.body.message).to.equal('cannot find user');
           done();
         })
         .catch(done);

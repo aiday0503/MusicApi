@@ -52,7 +52,7 @@ describe('## Misc', () => {
         })
         .expect(httpStatus.BAD_REQUEST)
         .then((res) => {
-          expect(res.body.message).to.equal('"username" is required');
+            expect(res.body.message).to.equal('"username" is required and "password" is required and "email" is required');
           done();
         })
         .catch(done);
