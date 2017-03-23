@@ -165,5 +165,4 @@ Your support is greatly appreciated.
 
 ## Meta
 
-Kunal Kapadia – [@kunalkapadia12](https://twitter.com/KunalKapadia12) – kunalkapadia12@gmail.com
-
+Marat Gaipov – [@maratgaip] – marattig@gmail.com
