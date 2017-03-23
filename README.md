@@ -122,3 +122,7 @@ This project is licensed under the [MIT License](https://github.com/maratgaip/Mu
 Marat Gaipov – [@maratgaip] – marattig@gmail.com
 
 Maksat Abdisattarov – [@MaksatSG] – maksibusiness@gmail.com
+
+## Info
+
+Built on top of [express-mongoose-es6-rest-api](https://github.com/KunalKapadia/express-mongoose-es6-rest-api)
