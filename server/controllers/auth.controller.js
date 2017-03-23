@@ -2,12 +2,7 @@ import jwt from 'jsonwebtoken';
 import httpStatus from 'http-status';
 import APIError from '../helpers/APIError';
 import config from '../../config/config';
-
-// sample user, used for authentication
-const user = {
-  username: 'react',
-  password: 'express'
-};
+import User from '../models/user.model';
 
 /**
  * Returns jwt token if valid username and password is provided
@@ -16,21 +11,47 @@ const user = {
  * @param next
  * @returns {*}
  */
+
+function authenticate(name, pass, fn) {
+    User.findOne({
+            username: name
+        }, function (err, user) {
+            if (user) {
+                // when we add hash...
+                /*hash(pass, user.salt, function (err, hash) {
+                 if (err) return fn(err);
+                 if (hash == user.hash) return fn(null, user);
+                 fn(new Error('invalid password'));
+                 });*/
+                if (user.password === pass){
+                    return fn(null, user)
+                }
+                return fn('invalid password');
+            } else {
+                return fn('cannot find user');
+            }
+        });
+
+}
+
 function login(req, res, next) {
   // Ideally you'll fetch this from the db
   // Idea here was to show how jwt works with simplicity
-  if (req.body.username === user.username && req.body.password === user.password) {
-    const token = jwt.sign({
-      username: user.username
-    }, config.jwtSecret);
-    return res.json({
-      token,
-      username: user.username
-    });
-  }
+  authenticate(req.body.username, req.body.password, function(err, user){
+    if(!err){
+      const token = jwt.sign({
+        username: user.username
+      }, config.jwtSecret);
+      return res.json({
+        token,
+        username: user.username
+      });
+    } else {
+      const error = new APIError(err, httpStatus.UNAUTHORIZED, true);
+      return next(error);
+    }
+  });
 
-  const err = new APIError('Authentication error', httpStatus.UNAUTHORIZED, true);
-  return next(err);
 }
 
 /**

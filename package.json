@@ -1,6 +1,6 @@
 {
   "name": "notaApi",
-  "version": "2.0.0",
+  "version": "0.0.1",
   "description": "Music streaming service REST APIs using express, mongoose in ES6 with code coverage",
   "author": "Marat Gaipov <marattig@gmail.com>",
   "main": "index.js",
