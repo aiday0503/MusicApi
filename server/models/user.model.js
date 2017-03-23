@@ -11,14 +11,61 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  password: {
+    type: String,
+    required: true
+  },
+  email: {
+    type: String,
+    required: true
+  },
   mobileNumber: {
     type: String,
-    required: true,
     match: [/^[1-9][0-9]{9}$/, 'The value of path {PATH} ({VALUE}) is not a valid mobile number.']
   },
   createdAt: {
     type: Date,
     default: Date.now
+  },
+  lastDate: {
+    type: Date,
+    default: Date.now
+  },
+  userGroup: {
+    type: Number,
+    default: 4
+  },
+  loved: {
+    type: Number,
+    default: 0
+  },
+  following: {
+    type: Number,
+    default: 0
+  },
+  followers: {
+    type: Number,
+    default: 0
+  },
+  name: {
+    type: String,
+    default: ''
+  },
+  location: {
+    type: String,
+    default: 'Kyrgyzstan'
+  },
+  language: {
+    type: String,
+    default: 'Kyrgyz'
+  },
+  avatar: {
+    type: String,
+    default: ''
+  },
+  terms: {
+    type: String,
+    default: ''
   }
 });
 
