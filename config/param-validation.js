@@ -7,7 +7,7 @@ export default {
       username: Joi.string().required(),
       password: Joi.string().required(),
       email: Joi.string().required()
-      //mobileNumber: Joi.string().regex(/^[1-9][0-9]{9}$/)
+      // mobileNumber: Joi.string().regex(/^[1-9][0-9]{9}$/)
     }
   },
 
@@ -16,7 +16,7 @@ export default {
     body: {
       username: Joi.string().required(),
       email: Joi.string().required()
-      //mobileNumber: Joi.string().regex(/^[1-9][0-9]{9}$/).required()
+      // mobileNumber: Joi.string().regex(/^[1-9][0-9]{9}$/).required()
     },
     params: {
       userId: Joi.string().hex().required()
