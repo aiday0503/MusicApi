@@ -120,7 +120,7 @@ This project is licensed under the [MIT License](https://github.com/maratgaip/Mu
 ## Documentation
 [MusicApi Documentation](https://github.com/maratgaip/MusicApi/blob/master/Doc.md)
 
-## Documentation
+## Todo
 [ToDo List](https://gist.github.com/maratgaip/2c7426bdd28efe6fd367cbe34e7e55b4)
 
 ## Meta
