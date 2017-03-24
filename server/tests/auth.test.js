@@ -35,17 +35,17 @@ describe('## Auth APIs', () => {
         .catch(done);
     });
 
-    it('should get valid JWT token', (done) => {
+    it('should get valid JWT accessToken', (done) => {
       request(app)
         .post('/api/auth/login')
         .send(validUserCredentials)
         .expect(httpStatus.OK)
         .then((res) => {
-          expect(res.body).to.have.property('token');
-          jwt.verify(res.body.token, config.jwtSecret, (err, decoded) => {
+          expect(res.body).to.have.property('accessToken');
+          jwt.verify(res.body.accessToken, config.jwtSecret, (err, decoded) => {
             expect(err).to.not.be.ok; // eslint-disable-line no-unused-expressions
             expect(decoded.username).to.equal(validUserCredentials.username);
-            jwtToken = `Bearer ${res.body.token}`;
+            jwtToken = `Bearer ${res.body.accessToken}`;
             done();
           });
         })
@@ -65,7 +65,7 @@ describe('## Auth APIs', () => {
         .catch(done);
     });
 
-    it('should fail to get random number because of wrong token', (done) => {
+    it('should fail to get random number because of wrong accessToken', (done) => {
       request(app)
         .get('/api/auth/random-number')
         .set('Authorization', 'Bearer inValidToken')

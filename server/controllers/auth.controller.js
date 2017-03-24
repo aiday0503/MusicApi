@@ -12,7 +12,7 @@ import User from '../models/user.model';
  * @returns {*}
  */
 
-function authenticate(username, pass, fn) {
+function authenticate(email, pass, fn) {
     function afterUserCheck(err, user) {
         if (user) {
             /* when we add hash...
@@ -28,7 +28,7 @@ function authenticate(username, pass, fn) {
         }
         return fn("Your username doesn't seem correct. Please try again");
     }
-    User.findOne({ $or: [{ email: username }, { username: username }] }, afterUserCheck);
+    User.findOne({ $or: [{ email: email }, { username: email }] }, afterUserCheck);
 }
 
 function login(req, res, next) {
@@ -36,22 +36,23 @@ function login(req, res, next) {
   // Idea here was to show how jwt works with simplicity
     function afterAuthen(err, user) {
         if (!err) {
-            const token = jwt.sign({
+            const accessToken = jwt.sign({
                 username: user.username
             }, config.jwtSecret);
             return res.json({
-                token,
-                username: user.username
+              accessToken,
+              user: user
             });
         }
         const error = new APIError(err, httpStatus.UNAUTHORIZED, true);
         return next(error);
 }
-  authenticate(req.body.username, req.body.password, afterAuthen);
+
+  authenticate(req.body.email, req.body.password, afterAuthen);
 }
 
 /**
- * This is a protected route. Will return random number only if jwt token is provided in header.
+ * This is a protected route. Will return random number only if jwt accessToken is provided.
  * @param req
  * @param res
  * @returns {*}
