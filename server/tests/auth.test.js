@@ -29,7 +29,7 @@ describe('## Auth APIs', () => {
         .send(invalidUserCredentials)
         .expect(httpStatus.UNAUTHORIZED)
         .then((res) => {
-          expect(res.body.message).to.equal('cannot find user');
+          expect(res.body.message).to.equal("Your username doesn't seem correct. Please try again");
           done();
         })
         .catch(done);

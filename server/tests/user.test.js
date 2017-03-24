@@ -31,7 +31,6 @@ describe('## User APIs', () => {
         .send(user)
         .expect(httpStatus.OK)
         .then((res) => {
-          expect(res.body.username).to.equal(user.username);
           expect(res.body.password).to.equal(user.password);
           expect(res.body.email).to.equal(user.email);
           user = res.body;
@@ -47,7 +46,7 @@ describe('## User APIs', () => {
         .get(`/api/users/${user._id}`)
         .expect(httpStatus.OK)
         .then((res) => {
-          expect(res.body.username).to.equal(user.username);
+          expect(res.body.email).to.equal(user.email);
           expect(res.body.password).to.equal(user.password);
           done();
         })
