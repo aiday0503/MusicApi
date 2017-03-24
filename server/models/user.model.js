@@ -8,8 +8,7 @@ import APIError from '../helpers/APIError';
  */
 const UserSchema = new mongoose.Schema({
   username: {
-    type: String,
-    required: true
+    type: String
   },
   password: {
     type: String,

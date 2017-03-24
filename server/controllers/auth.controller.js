@@ -28,7 +28,7 @@ function authenticate(username, pass, fn) {
         }
         return fn("Your username doesn't seem correct. Please try again");
     }
-    User.findOne({$or:[{ email: username },{ username: username } ]}, afterUserCheck);
+    User.findOne({ $or: [{ email: username }, { username: username }] }, afterUserCheck);
 }
 
 function login(req, res, next) {

@@ -1,5 +1,6 @@
+import httpStatus from 'http-status';
 import User from '../models/user.model';
-
+import APIError from '../helpers/APIError';
 /**
  * Load user and append to req.
  */
@@ -32,15 +33,18 @@ function create(req, res, next) {
     password: req.body.password
   });
 
-  User.get(id)
-    .then((user) => {
-      req.user = user; // eslint-disable-line no-param-reassign
-      return next();
-    });
+  function saveIfUniq(err, userOrEmail) {
+    if (userOrEmail) {
+      const error = new APIError('Email Is Already Taken', httpStatus.UNAUTHORIZED, true);
+      return next(error);
+    }
+    user.save()
+      .then(savedUser => res.json(savedUser))
+      .catch(e => next(e));
+    return false;
+  }
 
-  user.save()
-    .then(savedUser => res.json(savedUser))
-    .catch(e => next(e));
+  User.findOne({ email: user.email }, saveIfUniq);
 }
 
 /**
