@@ -22,16 +22,21 @@ function get(req, res) {
 
 /**
  * Create new user
- * @property {string} req.body.username - The username of user.
- * @property {string} req.body.mobileNumber - The mobileNumber of user.
+ * @property {string} req.body.email - The email of user.
+ * @property {string} req.body.password - The password of user.
  * @returns {User}
  */
 function create(req, res, next) {
   const user = new User({
-    username: req.body.username,
     email: req.body.email,
     password: req.body.password
   });
+
+  User.get(id)
+    .then((user) => {
+      req.user = user; // eslint-disable-line no-param-reassign
+      return next();
+    });
 
   user.save()
     .then(savedUser => res.json(savedUser))

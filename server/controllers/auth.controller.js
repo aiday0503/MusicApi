@@ -12,7 +12,7 @@ import User from '../models/user.model';
  * @returns {*}
  */
 
-function authenticate(name, pass, fn) {
+function authenticate(username, pass, fn) {
     function afterUserCheck(err, user) {
         if (user) {
             /* when we add hash...
@@ -26,9 +26,9 @@ function authenticate(name, pass, fn) {
             }
             return fn('invalid password');
         }
-        return fn('cannot find user');
+        return fn("Your username doesn't seem correct. Please try again");
     }
-    User.findOne({ username: name }, afterUserCheck);
+    User.findOne({$or:[{ email: username },{ username: username } ]}, afterUserCheck);
 }
 
 function login(req, res, next) {
