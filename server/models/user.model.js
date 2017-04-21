@@ -50,6 +50,9 @@ const UserSchema = new mongoose.Schema({
     type: String,
     default: ''
   },
+  playlist: {
+    type: [Number]
+  },
   location: {
     type: String,
     default: 'Kyrgyzstan'
@@ -58,7 +61,7 @@ const UserSchema = new mongoose.Schema({
     type: String,
     default: 'Kyrgyz'
   },
-  avatar: {
+  image: {
     type: String,
     default: ''
   },

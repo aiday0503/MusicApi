@@ -22,6 +22,10 @@ const SongSchema = new mongoose.Schema({
   albumId: {
     type: Number
   },
+  popularity: {
+    type: Number,
+    default: 0
+  },
   lyrics: {
     type: String
   },
