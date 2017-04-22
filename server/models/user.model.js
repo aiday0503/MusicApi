@@ -18,10 +18,6 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  mobileNumber: {
-    type: String,
-    match: [/^[1-9][0-9]{9}$/, 'The value of path {PATH} ({VALUE}) is not a valid mobile number.']
-  },
   createdAt: {
     type: Date,
     default: Date.now
@@ -50,6 +46,9 @@ const UserSchema = new mongoose.Schema({
     type: String,
     default: ''
   },
+  playlist: {
+    type: [Number]
+  },
   location: {
     type: String,
     default: 'Kyrgyzstan'
@@ -58,7 +57,7 @@ const UserSchema = new mongoose.Schema({
     type: String,
     default: 'Kyrgyz'
   },
-  avatar: {
+  image: {
     type: String,
     default: ''
   },

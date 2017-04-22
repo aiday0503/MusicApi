@@ -1,6 +1,9 @@
 import httpStatus from 'http-status';
+import jwt from 'jsonwebtoken';
 import User from '../models/user.model';
 import APIError from '../helpers/APIError';
+import config from '../../config/config';
+
 /**
  * Load user and append to req.
  */
@@ -39,7 +42,15 @@ function create(req, res, next) {
       return next(error);
     }
     user.save()
-      .then(savedUser => res.json(savedUser))
+      .then((savedUser) => {
+        const accessToken = jwt.sign({
+          username: savedUser.email
+        }, config.jwtSecret);
+        return res.json({
+          accessToken,
+          user: savedUser
+        });
+      })
       .catch(e => next(e));
     return false;
   }
