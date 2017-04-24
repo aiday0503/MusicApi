@@ -32,19 +32,25 @@ function get(req, res) {
  */
 function create(req, res, next) {
   const user = new User({
+    username: req.body.username,
     email: req.body.email,
     password: req.body.password
   });
 
-  function saveIfUniq(err, userOrEmail) {
-    if (userOrEmail) {
-      const error = new APIError('Email Is Already Taken', httpStatus.UNAUTHORIZED, true);
+  function saveIfUniq(err, userInfo) {
+    if (userInfo) {
+      let errorText = 'User';
+       if (userInfo.email === user.email) {
+        errorText = 'Email';
+       }
+      const error = new APIError(`${errorText} is Already Taken`, httpStatus.UNAUTHORIZED, true);
       return next(error);
     }
     user.save()
       .then((savedUser) => {
         const accessToken = jwt.sign({
-          username: savedUser.email
+          username: savedUser.username,
+          email: savedUser.email
         }, config.jwtSecret);
         return res.json({
           accessToken,
@@ -55,7 +61,13 @@ function create(req, res, next) {
     return false;
   }
 
-  User.findOne({ email: user.email }, saveIfUniq);
+  User.findOne({
+    $or: [{
+        email: user.email
+    }, {
+        username: user.username
+    }]
+  }, saveIfUniq);
 }
 
 /**
