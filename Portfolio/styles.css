@@ -1,0 +1,104 @@
+body{
+    background-color:#6f5964;
+    width: 970px;
+    margin: 0 auto;
+    font-family: calibri;
+}
+.header{
+
+    border: 0px solid white;
+    background-color: lightgrey;
+    width: 960px;
+
+}
+
+h1{
+
+    display: inline-block;
+    margin-left: 20px;
+}
+h2{
+    display: inline-block;
+    margin-left: 350px;
+}
+.me{
+    border: 5px solid lightgrey;
+    margin-top: 2px;
+}
+.about {
+    display: inline-block;
+    border: 2px solid lightgrey;
+    background-color: lightgrey;
+    width: 470px;
+    position: inherit;
+    vertical-align: top;
+    height: 300px;
+    display: inline-block;
+    margin-left: 20px;
+    margin-top: 2px;
+}
+
+.box{
+    border: 0px solid lightgrey;
+    width: 307px;
+    background-color: lightgrey;
+    display: inline-block;
+    height: 600px;
+    margin: 5px;
+}
+
+.title {
+    border: 2px solid #a3a2a9;
+    color: white;
+    background-color: #a3a2a9;
+    padding: 8px;
+    font-size: large;
+    font-weight: bolder;
+
+}
+p{
+    border: 2px solid lightgrey;
+    background-color: lightgrey;
+    height: 150px;
+
+
+}
+.logos img {
+    width:44px;
+    height: 40px;
+    position:inherit;
+    padding: 2px;
+    margin: 3px;
+
+}
+.logos{
+    border: 2px solid lightgrey;
+    background-color: lightgrey;
+    width: 280px;
+    margin: 10px;
+    display: inline;
+}
+.button{
+    text-align: center;
+    color: white;
+    background-color: green;
+    position: relative;
+    padding: 5px;
+    border-radius: 10px;
+    font-weight: bolder;
+    margin-left: 100px;
+}
+.footer{
+
+    background-color: lightgrey;
+    text-align: center;
+    width: 960px;
+    margin-top: 10px;
+    height: 70px;
+}
+.social img{
+    width: 30px;
+    height: 30px;
+
+}
+
